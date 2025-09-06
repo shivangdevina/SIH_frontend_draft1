@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system for AgriBot - Agricultural AI Assistant
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Agricultural theme colors */
+    --background: 160 20% 98%;
+    --foreground: 160 40% 15%;
+
+    --card: 160 20% 99%;
+    --card-foreground: 160 40% 15%;
+
+    --popover: 160 20% 99%;
+    --popover-foreground: 160 40% 15%;
+
+    /* Primary agricultural green */
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 160 84% 35%;
+    --primary-light: 160 84% 95%;
+
+    /* Secondary earthy tones */
+    --secondary: 160 20% 95%;
+    --secondary-foreground: 160 40% 15%;
+
+    --muted: 160 15% 96%;
+    --muted-foreground: 160 10% 45%;
+
+    --accent: 45 96% 57%;
+    --accent-foreground: 160 40% 15%;
+
+    /* Alert colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --warning: 45 96% 57%;
+    --success: 160 84% 39%;
+
+    --border: 160 20% 88%;
+    --input: 160 20% 96%;
+    --ring: 160 84% 39%;
+
+    --radius: 0.75rem;
+
+    /* Black sidebar theme */
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 160 84% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 160 84% 39%;
+
+    /* Agricultural gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(160, 84%, 39%), hsl(160, 84%, 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(160, 20%, 98%), hsl(160, 30%, 95%));
+    --gradient-card: linear-gradient(135deg, hsl(160, 20%, 99%), hsl(160, 15%, 97%));
+    
+    /* Agricultural shadows */
+    --shadow-agricultural: 0 4px 20px hsl(160, 84%, 39% / 0.1);
+    --shadow-card: 0 2px 10px hsl(160, 20%, 40% / 0.1);
+    --shadow-elegant: 0 8px 30px hsl(160, 84%, 39% / 0.15);
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Custom agricultural animations and utilities */
+  .agricultural-gradient {
+    background: var(--gradient-primary);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .shadow-agricultural {
+    box-shadow: var(--shadow-agricultural);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-fast {
+    transition: var(--transition-fast);
+  }
+
+  /* Agricultural button styles */
+  .btn-agricultural {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-smooth shadow-card;
+  }
+
+  .btn-agricultural-outline {
+    @apply border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-primary-foreground transition-smooth;
+  }
+
+  /* Responsive utilities */
+  .container-agricultural {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .card-agricultural {
+    @apply bg-card border border-border rounded-lg p-6 shadow-card transition-smooth hover:shadow-elegant;
+  }
+}
+
+@layer components {
+  /* Agricultural hover effects */
+  .hover-lift {
+    @apply transition-smooth hover:transform hover:-translate-y-1 hover:shadow-elegant;
+  }
+
+  .hover-scale {
+    @apply transition-smooth hover:scale-105;
+  }
+
+  /* Form styling */
+  .form-input-agricultural {
+    @apply w-full px-4 py-3 border border-border rounded-lg bg-input text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-fast;
+  }
+
+  .form-select-agricultural {
+    @apply w-full px-4 py-3 border border-border rounded-lg bg-input text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-fast;
+  }
+
+  /* Mobile responsiveness utilities */
+  .mobile-menu-slide {
+    @apply transform transition-transform duration-300 ease-in-out;
+  }
+
+  .mobile-menu-slide.open {
+    @apply translate-x-0;
+  }
+
+  .mobile-menu-slide.closed {
+    @apply -translate-x-full;
+  }
+}
